@@ -12,8 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet">
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,13 +31,47 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter app!</span>
+      <span>tweeter</span>
+      <div class="newTweet"> <p><strong>Write</strong> a new tweet</p>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>      
     </nav>
+
+    <header>
+      <div class="background-image"></div>
+      <div class="avatar">
+        <div class="avatar pic">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div class="avatar name">
+            <p><strong>Your</strong> Name</p>
+        </div>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
-      <p>Hello !</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What Are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="tweets">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <div class="question">
+        <h1>What are you humming about?</h1>
+        <div class="h_line"></div>
+        <div class="tweets">
+          <div class="tweeticon">TWEET</div>
+          <div class="letters">140</div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
     </main>
   </body>
 </html>

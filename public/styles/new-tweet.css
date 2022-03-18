@@ -1,0 +1,35 @@
+section h2 {
+  display: none
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow:1;
+}
+
+label {
+  font-weight: 600;
+  margin: 1.5em 0px;
+}
+
+textarea {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 3px solid #545149;
+  outline: none;
+  margin-bottom: 1em;
+  background: transparent;
+}
+
+.tweets {
+  display: flex;
+  justify-content: space-between;
+  flex-grow:1;
+  font-size: 15px;
+  color: #545149;
+  font-family: 'Bungee', sans-serif;
+}
+
