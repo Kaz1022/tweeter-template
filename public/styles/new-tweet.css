@@ -19,7 +19,10 @@ textarea {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom: 3px solid #545149;
+  box-sizing:border-box;
+  resize: none;
   outline: none;
+  font-size: 20px;
   margin-bottom: 1em;
   background: transparent;
 }
@@ -31,5 +34,31 @@ textarea {
   font-size: 15px;
   color: #545149;
   font-family: 'Bungee', sans-serif;
+  margin-bottom: 1em;
 }
 
+.button-tweet{
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 10px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-tweet:hover {
+  background-color: #fff;
+}
+
+.myClass {
+  color: red;
+}

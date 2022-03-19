@@ -35,7 +35,7 @@ body {
   justify-content:center;
 }
 
-.question {
+/* .question {
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -78,6 +78,8 @@ body {
 
 p {
   font-size: 20px;
-}
+} */
+
+
 
 
