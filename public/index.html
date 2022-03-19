@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,12 +34,12 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <div class="newTweet"> <p><strong>Write</strong> a new tweet</p>
+      <div class="new-tweet"> <p><strong>Write</strong> a new tweet</p>
         <i class="fa-solid fa-angles-down"></i>
       </div>      
     </nav>
 
-    <header>
+    <header id="main-header">
       <div class="background-image"></div>
       <div class="avatar">
         <div class="avatar pic">
@@ -53,7 +54,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="tweet-input">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text">What Are you humming about?</label>
@@ -63,6 +64,26 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section class="tweet-container">
+        <article class="tweet">
+          <header class="user">
+            <div class="icon-name">
+              <img alt="pfp">
+              <p class="name">Newton</p>
+            </div>
+            <p class="account-name">@SirIsaac</p>
+          </header>
+          <p class="message">Hello World!</p>
+          <footer>
+            <p class="dates">10 days ago</p>
+            <div class="icons">
+              <i class="icon fa-solid fa-flag"></i>
+              <i class="icon fa-solid fa-retweet"></i>
+              <i class="icon fa-solid fa-heart"></i>
+            </div>
+          </footer>
+        </article>
       </section>
       <!-- <div class="question">
         <h1>What are you humming about?</h1>
