@@ -8,6 +8,7 @@ article {
   border: 3px;
   border-style: solid;
   border-color: #545149;
+  margin-bottom: 1em;
 }
 
 article:hover {
