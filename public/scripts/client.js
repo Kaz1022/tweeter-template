@@ -6,17 +6,37 @@
 
 $(document).ready(function() {
 
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1647638170555
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1647638170555
-  };
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
+  
+  const renderTweets = function(tweets) {
+    tweets.forEach(tweet => {
+      const $tweet = createTweetElement(tweet)
+      $(".tweet-container").append($tweet);
+    });
+  }
 
   function getDays(start) {
     //initialize dates with Date object
@@ -34,19 +54,19 @@ $(document).ready(function() {
     // return number of days
     return diffDays;
   };
-
-  const createTweetElement = function(tweetData) {
+  
+  const createTweetElement = function(tweet) {
     const $tweet = $(`<article class="tweet">
     <header class="user">
       <div class="icon-name">
         <img alt="pfp">
-        <p class="name">${tweetData.user.name}</p>
+        <p class="name">${tweet.user.name}</p>
       </div>
-      <p class="account-name">${tweetData.user.handle}</p>
+      <p class="account-name">${tweet.user.handle}</p>
     </header>
-    <p class="message">${tweetData.content.text}</p>
+    <p class="message">${tweet.content.text}</p>
     <footer>
-      <p class="dates">${getDays(tweetData.created_at)} days ago</p>
+      <p class="dates">${getDays(tweet.created_at)} days ago</p>
       <div class="icons">
         <i class="icon fa-solid fa-flag"></i>
         <i class="icon fa-solid fa-retweet"></i>
@@ -54,12 +74,9 @@ $(document).ready(function() {
       </div>
     </footer>
   </article>`);
-    console.log($tweet);
     return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
-
-  $(".tweet-container").append($tweet);
+  renderTweets(data);
 
 });
