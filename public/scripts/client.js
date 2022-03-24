@@ -31,31 +31,15 @@ $(document).ready(function() {
     }
   ];
   
-  const renderTweets = function(tweets) {
-    tweets.forEach(tweet => {
+  const renderTweets = (tweets) => {
+    const $tweetContainer = $(".tweet-container");
+    tweets.forEach((tweet) => {
       const $tweet = createTweetElement(tweet)
-      $(".tweet-container").append($tweet);
+      $tweetContainer.prepend($tweet);
     });
   }
 
-  function getDays(start) {
-    //initialize dates with Date object
-    const date1 = start;
-    const date2 = new Date();
-
-    // calculation for converting a day into milliseconds
-    const oneDay = 1000 * 60 * 60 * 24;
-
-    // calculation for the time difference between start and last
-    const diffTime = date2.getTime() - date1;
-
-    // calculation for the days between start and last
-    const diffDays = Math.round(diffTime / oneDay);
-    // return number of days
-    return diffDays;
-  };
-  
-  const createTweetElement = function(tweet) {
+  const createTweetElement = (tweet) => {
     const $tweet = $(`<article class="tweet">
     <header class="user">
       <div class="icon-name">
@@ -66,7 +50,7 @@ $(document).ready(function() {
     </header>
     <p class="message">${tweet.content.text}</p>
     <footer>
-      <p class="dates">${getDays(tweet.created_at)} days ago</p>
+      <p class="dates">${timeago.format(tweet.created_at)}</p>
       <div class="icons">
         <i class="icon fa-solid fa-flag"></i>
         <i class="icon fa-solid fa-retweet"></i>
@@ -77,6 +61,37 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  renderTweets(data);
+  const $newTweetForm = $("form");
+
+  $newTweetForm.submit(function(event) {
+    event.preventDefault();
+    const serializedData = $(this).serialize();
+    console.log(serializedData);
+    // $.post(“/tweets”, serializedData) is same as $.ajax({url:, method:, data:})
+    // you only want to add the latest tweet when you render 
+    // you want to clear out the texts in the form, use trigger reset
+    $.ajax({
+      url: "/tweets",
+      method: "post",
+      data: serializedData
+    }).then( () => {
+      return $.get("/tweets");
+    }).then( (tweetsData) => {
+      const tweet = tweetsData.slice(-1);
+      renderTweets(tweet);
+      $newTweetForm.trigger("reset");
+    })
+  })
+
+  const loadTweets = () => {
+    $.ajax({
+      url: "/tweets",
+      method: "GET" 
+      }).then(function (tweetsData) {
+        renderTweets(tweetsData);
+      });
+    }
+  
+    loadTweets();
 
 });
