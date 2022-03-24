@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("#tweet-text").on("input", function(){
     // tweet element values are texts, we want the length
     const maxLength = 140;
-    let currentLength = ($(this).val().length);
+    let currentLength = ($(this).val().trim().length);
     let remaining = maxLength - currentLength;
     // use jQuery to traverse the DOM tree from that node/element
     let counter = ($(this).next().children(".counter"));
