@@ -60,12 +60,14 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="tweet-input">
+        <div id="error1" class="error"></div>
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text">What Are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="tweets">
             <button class="button-tweet" type="submit">Tweet</button>
+            <div id="error2" class="error"></div>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>

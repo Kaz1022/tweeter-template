@@ -15,15 +15,23 @@ $(document).ready(function() {
   }
 
   const createTweetElement = (tweet) => {
+
+    // to prevent XXS create espace function
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     const $tweet = $(`<article class="tweet">
     <header class="user">
       <div class="icon-name">
-        <img alt="pfp">
+        <img src="${tweet.user.avatars}">
         <p class="name">${tweet.user.name}</p>
       </div>
       <p class="account-name">${tweet.user.handle}</p>
     </header>
-    <p class="message">${tweet.content.text}</p>
+    <p class="message">${escape(tweet.content.text)}</p>
     <footer>
       <p class="dates">${timeago.format(tweet.created_at)}</p>
       <div class="icons">
@@ -40,33 +48,39 @@ $(document).ready(function() {
 
   $newTweetForm.submit(function(event) {
     event.preventDefault();
+    $(".error").empty().hide();
+    
+ 
     const serializedData = $(this).serialize();
     const textLength = $(this).children("#tweet-text").val().trim().length;
-
+   
     // $.post(“/tweets”, serializedData) is same as $.ajax({url:, method:, data:})
     // you only want to add the latest tweet when you render 
-    // you want to clear out the texts in the form, use trigger reset
 
     if (textLength === 0) {
-      alert("Tweet cannot be empty!");
+      const $error2 = $(this).find("#error2");
+      $error2.append($(`<i class="fa-solid fa-circle-exclamation"></i><span class="error">Tweet cannot be empty!</span>`)).slideDown("slow");
       return;
     }
 
     if (textLength > 140) {
-      alert("Too many words!");
+      const $error1 = $(this).parent().find("#error1");
+      $error1.append($(`<i class="fa-solid fa-circle-exclamation"></i><span class="error">Too many letters! Please keep your tweet under 140 characters!</span><i class="fa-solid fa-circle-exclamation"></i>`)).slideDown("slow");
       return;
     }
 
     $.ajax({
       url: "/tweets",
       method: "post",
-      data: serializedData
+      data: serializedData     
     }).then( () => {
       return $.get("/tweets");
-    }).then( (tweetsData) => {
+    })
+    .then( (tweetsData) => {
       const tweet = tweetsData.slice(-1);
       renderTweets(tweet);
       $newTweetForm.trigger("reset");
+      $('.counter').text('140')
     })
   })
 
