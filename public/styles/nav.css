@@ -6,9 +6,9 @@ nav {
   background-color: #4056A1;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 2.5em;
-  padding-bottom: 1em;
-  height: 120px;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  height: 10vh;
 
   font-family: 'Source Sans Pro', sans-serif;
   color: #FFFFFF;
@@ -17,11 +17,13 @@ nav {
 
 span {
   font-family: 'Bungee', sans-serif;
-  font-size: 40px;
-  flex-grow: 1
+  font-size: 1.3em;
+  flex-grow: 1;
+  align-self: center;
 }
 
 .new-tweet {
+  font-size: 0.9em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,5 +48,9 @@ span {
   10% { transform: translateY(0); }
 }
 
-
-
+/*  Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    background-color: transparent;
+  }
+}

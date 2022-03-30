@@ -71,3 +71,10 @@ footer {
   cursor: pointer;
   color: #c8a51b;
 }
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .tweet {
+    padding-top: 10px;
+  }
+}

@@ -86,3 +86,14 @@ textarea {
   align-self: center;
 }
 
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .error {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+    margin: 0em 0.5em;
+  }
+}
