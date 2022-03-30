@@ -38,9 +38,11 @@ textarea {
 }
 
 .button-tweet{
-  border: 2px solid #4056A1;
-  color: #FFFFFF;
-  background-color: #4056A1;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
   cursor: pointer;
   font-weight: 600;
   font-size: 15px;
@@ -54,7 +56,7 @@ textarea {
 }
 
 .button-tweet:hover {
-  background-color: rgb(177, 216, 240);
+  background-color: #fff;
 }
 
 .myClass {
@@ -84,35 +86,25 @@ textarea {
   align-self: center;
 }
 
+
+/*  Small Device Styles */
+@media (max-width: 383px) {
+  .error {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+    margin: 0em 0.5em;
+  }
+}
+
 /*  Tablet Styles */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   nav {
     background-color: #e39000;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
     height: 10vh;
   }
-
-  .button-tweet{
-    background-color: #fbeee0;
-    border: 2px solid #422800;
-    border-radius: 30px;
-    box-shadow: #422800 4px 4px 0 0;
-    color: #422800;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 0 10px;
-    line-height: 30px;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .button-tweet:hover {
-    background-color: #fff;
-  }  
 }
 
 
@@ -124,27 +116,5 @@ textarea {
     color: red;
     font-weight: bold;
     margin: 0em 0.5em;
-  }
-
-  .button-tweet{
-    background-color: #fbeee0;
-    border: 2px solid #422800;
-    border-radius: 30px;
-    box-shadow: #422800 4px 4px 0 0;
-    color: #422800;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 0 10px;
-    line-height: 30px;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-
-  .button-tweet:hover {
-    background-color: #fff;
   }
 }
