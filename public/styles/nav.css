@@ -51,6 +51,7 @@ span {
 /*  Tablet Styles */
 @media (min-width: 768px) and (max-width: 1024px) {
   nav {
-    background-color: transparent;
+    background-color: #e39000;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   }
 }
