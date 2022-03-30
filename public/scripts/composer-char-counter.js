@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("#tweet-text").on("input", function(){
+  $("#tweet-text").on("input", function() {
     // tweet element values are texts, we want the length
     const maxLength = 140;
     let currentLength = ($(this).val().trim().length);
@@ -16,6 +16,5 @@ $(document).ready(function() {
       // counter.css('color', '#545149')
       counter.removeClass("myClass");
     }
-  })
-
+  });
 });

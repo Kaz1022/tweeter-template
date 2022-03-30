@@ -9,15 +9,15 @@ $(document).ready(function() {
   const renderTweets = (tweets) => {
     const $tweetContainer = $(".tweet-container");
     tweets.forEach((tweet) => {
-      const $tweet = createTweetElement(tweet)
+      const $tweet = createTweetElement(tweet);
       $tweetContainer.prepend($tweet);
     });
-  }
+  };
 
   const createTweetElement = (tweet) => {
 
     // to prevent XXS create espace function
-    const escape = function (str) {
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -49,11 +49,11 @@ $(document).ready(function() {
   $newTweetForm.submit(function(event) {
     event.preventDefault();
     $(".error").empty().hide();
-    
- 
+
+
     const serializedData = $(this).serialize();
     const textLength = $(this).children("#tweet-text").val().trim().length;
-   
+
     // $.post(“/tweets”, serializedData) is same as $.ajax({url:, method:, data:})
     // you only want to add the latest tweet when you render 
 
@@ -72,27 +72,27 @@ $(document).ready(function() {
     $.ajax({
       url: "/tweets",
       method: "post",
-      data: serializedData     
-    }).then( () => {
+      data: serializedData
+    }).then(() => {
       return $.get("/tweets");
     })
-    .then( (tweetsData) => {
-      const tweet = tweetsData.slice(-1);
-      renderTweets(tweet);
-      $newTweetForm.trigger("reset");
-      $('.counter').text('140')
-    })
-  })
+      .then((tweetsData) => {
+        const tweet = tweetsData.slice(-1);
+        renderTweets(tweet);
+        $newTweetForm.trigger("reset");
+        $('.counter').text('140');
+      });
+  });
 
   const loadTweets = () => {
     $.ajax({
       url: "/tweets",
-      method: "GET" 
-      }).then(function (tweetsData) {
-        renderTweets(tweetsData);
-      });
-    }
-  
-    loadTweets();
+      method: "GET"
+    }).then(function(tweetsData) {
+      renderTweets(tweetsData);
+    });
+  };
+
+  loadTweets();
 
 });

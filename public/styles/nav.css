@@ -8,7 +8,7 @@ nav {
   padding-right: 1.5em;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
-  height: 10vh;
+  height: 120px;
 
   font-family: 'Source Sans Pro', sans-serif;
   color: #FFFFFF;
@@ -36,8 +36,7 @@ span {
   bottom:15px;
   color: red;
   animation-duration: 2s;
-  animation-iteration-count: 
-  infinite;
+  animation-iteration-count: infinite;
   animation-name: bounce-1;
   animation-timing-function: linear;
 }
@@ -48,10 +47,29 @@ span {
   10% { transform: translateY(0); }
 }
 
+/*  Small Device Styles */
+@media (max-width: 383px) {
+  .new-tweet {
+    font-size: 0.7em;
+  }
+
+  .fa-angles-down {
+    bottom:5px;
+  }
+}
+
 /*  Tablet Styles */
 @media (min-width: 768px) and (max-width: 1024px) {
   nav {
     background-color: #e39000;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    height: 10vh;
+  }
+}
+
+/*  Desk Top Styles */
+@media only screen and (min-width: 1024px) {
+  nav {
+    height: 10vh;
   }
 }
