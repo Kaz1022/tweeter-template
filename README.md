@@ -6,7 +6,9 @@ Tweeter is a simple, single-page Twitter clone. The project is focused on practi
 ## Final Product
 
 !["Screenshot of Mobile Layout"](https://github.com/Kaz1022/tweeter-template/blob/master/docs/MobileLayout.gif)
-!["Screenshot of Responsive Layout"](https://github.com/Kaz1022/tweeter-template/blob/master/docs/ResponsiveLayout.gif)
+
+<img src="https://github.com/Kaz1022/tweeter-template/blob/master/docs/ResponsiveLayout.gif" width="500"/>
+
 !["Screenshot of Desktop Layout with Error Message"](https://github.com/Kaz1022/tweeter-template/blob/master/docs/desktop-error.png)
 
 
